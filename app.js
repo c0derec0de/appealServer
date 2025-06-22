@@ -1,11 +1,18 @@
 import express from 'express';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
-import { pool, initializeDatabase } from './database.js';
+import { pool } from './database.js';
 
 const app = express();
 app.use(express.json());
 
+pool.query('SELECT 1')
+  .then(() => console.log('Подключение к БД успешно'))
+  .catch(err => {
+    console.error('Ошибка подключения к БД', err);
+    process.exit(1);
+  });
+  
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -53,12 +60,6 @@ const swaggerOptions = {
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-initializeDatabase()
-  .then(() => console.log('БД создана успешно'))
-  .catch(err => {
-    console.error('Ошибка при создании БД', err);
-    process.exit(1);
-  });
 
 /**
  * @swagger

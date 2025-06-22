@@ -13,6 +13,7 @@ services:
       - DB_PORT=5432
     depends_on:
       - db
+      - migrate
     volumes:
       - ./:/appeal
       - /appeal/node_modules
@@ -28,5 +29,19 @@ services:
     ports:
       - "5432:5432"
 
+  migrate:
+    build: .
+    command: npm run migrate:up
+    environment:
+      - DB_HOST=db
+      - DB_USER=appeals_user
+      - DB_PASSWORD=adminqwe
+      - DB_NAME=appeals_db
+      - DB_PORT=5432
+    depends_on:
+      - db
+    volumes:
+      - ./:/appeal
+      - /appeal/node_modules
 volumes:
   postgres_data:
