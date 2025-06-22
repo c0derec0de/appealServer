@@ -20,6 +20,5 @@ docker-compose up --build
 - `PUT /appeals/{id}/complete` - Завершить обращение  
 
 
-### Структура базы данных
+### Структура базы данных PostgreSQL - порт 5432 (логин: appeals_user, пароль: adminqwe)
 ![Структура базы данных](https://github.com/c0derec0de/appealServer/blob/main/DB.png)
-PostgreSQL - порт 5432 (логин: appeals_user, пароль: adminqwe)
