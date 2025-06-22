@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  appeal-service:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_USER=appeals_user
+      - DB_PASSWORD=adminqwe
+      - DB_NAME=appeals_db
+      - DB_PORT=5432
+    depends_on:
+      - db
+    volumes:
+      - ./:/appeal
+      - /appeal/node_modules
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=appeals_user
+      - POSTGRES_PASSWORD=adminqwe
+      - POSTGRES_DB=appeals_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
