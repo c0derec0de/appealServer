@@ -11,3 +11,5 @@
 ### Docker-запуск (рекомендуется)
 ```bash
 docker-compose up --build
+```
+![Структура базы данных](https://github.com/c0derec0de/appealServer/blob/main/DB.png)
