@@ -16,8 +16,7 @@ git clone https://github.com/c0derec0de/appealServer.git
 cd appealServer
 docker-compose up --build
 ```
-### Документация доступна через Swagger UI:  
-[http://localhost:3000/api-docs](http://localhost:3000/api-docs)  
+### Документация доступна через Swagger UI: [http://localhost:3000/api-docs](http://localhost:3000/api-docs)  
 Основные эндпоинты:  
 - `POST /appeals` - Создать обращение  
 - `GET /appeals` - Получить список обращений  
