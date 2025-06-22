@@ -1,11 +1,13 @@
 # appealServer
-Запуск: docker-compose up --build
-Сервер: http://localhost:3000
-Swagger UI: http://localhost:3000/api-docs
-PostgreSQL: postgres:5432
 
-POST /appeals – Создать обращение
-GET /appeals – Список обращений (фильтры: status, date, startDate/endDate)
-PUT /appeals/{id}/take – Взять в работу
-PUT /appeals/{id}/complete – Завершить (solution в response_message)
-PUT /appeals/{id}/cancel – Отменить (cancellation_reason в response_message)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
+![Docker](https://img.shields.io/badge/Docker-✔-brightgreen)
+
+Микросервис для управления обращениями с REST API и Swagger-документацией.
+
+## 🚀 Быстрый старт
+
+### Docker-запуск (рекомендуется)
+```bash
+docker-compose up --build
